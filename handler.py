@@ -13,7 +13,7 @@ def lambda_handler(event, context):
     except json.JSONDecodeError:
         params = {}
 
-    limit = int(params.get("limit", 5))
+    limit = int(params.get("limit", 5000))
     filtro_informador = params.get("Informador PAYAC") or params.get("informador_payac")
 
     try:
