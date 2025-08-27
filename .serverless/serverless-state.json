@@ -103,7 +103,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-us-east-1-dfd9c933-60de",
-                "S3Key": "serverless/s3-csv-lambda/dev/1751584287248-2025-07-03T23:11:27.248Z/s3-csv-lambda.zip"
+                "S3Key": "serverless/s3-csv-lambda/dev/1751652330001-2025-07-04T18:05:30.001Z/s3-csv-lambda.zip"
               },
               "Handler": "handler.lambda_handler",
               "Runtime": "python3.9",
@@ -121,14 +121,14 @@
               "GetCsvLogGroup"
             ]
           },
-          "GetCsvLambdaVersion8gRBOf6tDG0DybC4D13gUXuwb5hNiHtcVc3aFvnl2M": {
+          "GetCsvLambdaVersionIHlIICEspmQCRjI6yJDRrSXcz1J3k29jGTkOTkoyXY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetCsvLambdaFunction"
               },
-              "CodeSha256": "NwxQ4KRhEZvuWJzey33e40+MpngXXyzJFGcKK8+Z0Ws="
+              "CodeSha256": "uDuZIO8QBl0KsVEsdQPOqN4z9a0hiKRyZXdVm/eBCZU="
             }
           },
           "ApiGatewayRestApi": {
@@ -187,7 +187,7 @@
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
                       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
                       "application/json": ""
@@ -203,10 +203,10 @@
               }
             }
           },
-          "ApiGatewayMethodTicketsGet": {
+          "ApiGatewayMethodTicketsPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
-              "HttpMethod": "GET",
+              "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
                 "Ref": "ApiGatewayResourceTickets"
@@ -249,7 +249,7 @@
               "GetCsvLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1751584277377": {
+          "ApiGatewayDeployment1751652319904": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -259,7 +259,7 @@
             },
             "DependsOn": [
               "ApiGatewayMethodTicketsOptions",
-              "ApiGatewayMethodTicketsGet"
+              "ApiGatewayMethodTicketsPost"
             ]
           },
           "GetCsvLambdaPermissionApiGateway": {
@@ -310,7 +310,7 @@
           "GetCsvLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetCsvLambdaVersion8gRBOf6tDG0DybC4D13gUXuwb5hNiHtcVc3aFvnl2M"
+              "Ref": "GetCsvLambdaVersionIHlIICEspmQCRjI6yJDRrSXcz1J3k29jGTkOTkoyXY"
             },
             "Export": {
               "Name": "sls-s3-csv-lambda-dev-GetCsvLambdaFunctionQualifiedArn"
@@ -357,12 +357,12 @@
           {
             "http": {
               "path": "tickets",
-              "method": "get",
+              "method": "post",
               "cors": {
                 "origin": "*",
                 "methods": [
                   "OPTIONS",
-                  "GET"
+                  "POST"
                 ],
                 "headers": [
                   "Content-Type",
@@ -385,7 +385,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "GetCsvLambdaVersion8gRBOf6tDG0DybC4D13gUXuwb5hNiHtcVc3aFvnl2M"
+        "versionLogicalId": "GetCsvLambdaVersionIHlIICEspmQCRjI6yJDRrSXcz1J3k29jGTkOTkoyXY"
       }
     },
     "configValidationMode": "warn",
@@ -408,7 +408,7 @@
     "artifact": "/Users/eferrero/Documents/GitHub/consultar-csv/.serverless/s3-csv-lambda.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/s3-csv-lambda/dev/1751584287248-2025-07-03T23:11:27.248Z",
+    "artifactDirectoryName": "serverless/s3-csv-lambda/dev/1751652330001-2025-07-04T18:05:30.001Z",
     "artifact": "s3-csv-lambda.zip"
   }
 }

@@ -11,7 +11,7 @@ functions:
     events:
       - http:
           path: tickets
-          method: get
+          method: post
           cors: true
 
 plugins:
